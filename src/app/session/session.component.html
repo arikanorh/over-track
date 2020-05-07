@@ -1,6 +1,21 @@
-<app-gamerecord class="app-record" *ngFor="let game of data" [game]="game">
-
-</app-gamerecord>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Date</th>
+			<th scope="col">Map</th>
+			<th scope="col">SR</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let game of data;let i = index">
+			<th scope="row">i</th>
+			<td>{{game.date}}</td>
+			<td>{{game.map}}</td>
+			<td>{{game.skillRating}}</td>
+		</tr>
+	</tbody>
+</table>
 
 <div>
 
@@ -19,9 +34,9 @@
   </select>
 	<input [(ngModel)]="model.skillRating" type="text" class="form-control" placeholder="Skill Rating" name="skillRating">
 
-<div class="input-group-append">
-    <button (click)="add()" class="btn btn-primary" type="button">EKLE</button>
-  </div>
+	<div class="input-group-append">
+		<button (click)="add()" class="btn btn-primary" type="button">EKLE</button>
+	</div>
 </form>
 
 {{model.skillRating}} {{model.map}}
