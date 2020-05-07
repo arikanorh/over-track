@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class GamerecordComponent implements OnInit {
 
   @Input() game;
-  @Output() delete;
+  @Output() del;
   constructor() { }
 
   ngOnInit() {
