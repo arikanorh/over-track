@@ -9,5 +9,5 @@
 	<div class="sr">
 		{{game.skillRating}}
 	</div>
-	<mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+	<mat-icon (click)="delete.emit()" class="delete">delete</mat-icon>
 </div>

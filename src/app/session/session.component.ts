@@ -33,6 +33,7 @@ export class SessionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.model.map="1";
   }
 
   add(){
@@ -42,5 +43,9 @@ export class SessionComponent implements OnInit {
     this.data.push(this.model);
     this.model = new Game();
   }
+
+delete(item){
+  this.data= this.data.filter(e=>e!==item);
+}
 
 }

@@ -1,5 +1,5 @@
 
-<app-gamerecord class="app-record" *ngFor="let game of data" [game]="game">
+<app-gamerecord class="app-record" *ngFor="let game of data" [game]="game" (delete)="delete(game)"
 
 </app-gamerecord>
 
@@ -11,7 +11,7 @@
 	</div>
 
 	<select name="map" id="" class="form-control" [(ngModel)]="model.map">
-    <option *ngFor="let map of mapList" [value]="map.name">
+    <option *ngFor="let map of mapList" [value]="map.id">
       {{map.name}}
     </option>
   </select>
@@ -21,5 +21,4 @@
     <button (click)="add()" class="btn btn-primary" type="button">EKLE</button>
   </div>
 </form>
-
-{{model.skillRating}} {{model.map}}
+ 

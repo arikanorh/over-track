@@ -12,3 +12,10 @@
  .game-record > div{
    flex:1;
  }
+ .delete{
+   color:#c2185b;
+   cursor: pointer;
+ }
+ .delete:hover{
+   color:#700d35;
+ }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-gamerecord',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GamerecordComponent implements OnInit {
 
   @Input() game;
+  @Output() delete;
   constructor() { }
 
   ngOnInit() {
