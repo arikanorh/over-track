@@ -14,19 +14,19 @@ export class SessionComponent implements OnInit {
   model=new Game();
   data:Game[]=[
     {
-      map:'Hanamura', skillRating:2300,date:'2020-05-08 13:00:00'
+      map:'1', skillRating:2300,date:'2020-05-08 13:00:00'
     },{
-      map:'Hanamura', skillRating:2320,date:'2020-05-08 13:25:00'
+      map:'2', skillRating:2320,date:'2020-05-08 13:25:00'
     },{
-      map:'Hanamura', skillRating:2301,date:'2020-05-08 13:42:00'
+      map:'3', skillRating:2301,date:'2020-05-08 13:42:00'
     },{
-      map:'Hanamura', skillRating:2280,date:'2020-05-08 13:34:00'
+      map:'4', skillRating:2280,date:'2020-05-08 13:34:00'
     },{
-      map:'Hanamura', skillRating:2305,date:'2020-05-08 13:55:00'
+      map:'5', skillRating:2305,date:'2020-05-08 13:55:00'
     },{
-      map:'Hanamura', skillRating:2330,date:'2020-05-08 14:12:00'
+      map:'6', skillRating:2330,date:'2020-05-08 14:12:00'
     },{
-      map:'Hanamura', skillRating:2370,date:'2020-05-08 14:30:00'
+      map:'7', skillRating:2370,date:'2020-05-08 14:30:00'
     }
   ]
 
@@ -34,7 +34,7 @@ export class SessionComponent implements OnInit {
 
   ngOnInit() {
     this.model.map="1";
-  }
+   }
 
   add(){
 
@@ -42,6 +42,7 @@ export class SessionComponent implements OnInit {
 
     this.data.push(this.model);
     this.model = new Game();
+    this.model.map="1";
   }
 
 delete(item){

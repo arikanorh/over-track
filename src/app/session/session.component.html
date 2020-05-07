@@ -1,9 +1,8 @@
-
 <app-gamerecord class="app-record" *ngFor="let game of data" [game]="game" (del)="delete(game)">
 
 </app-gamerecord>
 
- 
+
 
 <form #gameForm="ngForm" class="input-group mb-3">
 	<div class="input-group-prepend">
@@ -15,10 +14,10 @@
       {{map.name}}
     </option>
   </select>
-	<input [(ngModel)]="model.skillRating" type="text" class="form-control" placeholder="Skill Rating" name="skillRating">
+	<input name="name"  #name="ngModel" [(ngModel)]="model.skillRating" type="text" class="form-control" placeholder="Skill Rating" required name="skillRating">
 
-<div class="input-group-append">
-    <button (click)="add()" class="btn btn-primary" type="button">EKLE</button>
-  </div>
-</form>
+	<div class="input-group-append">
+		<button (click)="add()" class="btn btn-primary" type="button" [attr.disabled]="name.touched&&name.errors?.required">EKLE</button>
+	</div>
  
+</form>

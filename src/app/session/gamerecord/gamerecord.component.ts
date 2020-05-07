@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MapService } from '../../map.service';
 
 @Component({
   selector: 'app-gamerecord',
@@ -8,10 +9,12 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 export class GamerecordComponent implements OnInit {
 
   @Input() game;
-  @Output() del;
+  @Output() del = new EventEmitter();
+  name;
   constructor() { }
 
   ngOnInit() {
+     this.name = MapService.getMapById(this.game.map).name;
   }
 
 }
