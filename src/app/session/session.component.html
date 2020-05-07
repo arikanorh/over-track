@@ -1,0 +1,27 @@
+<app-gamerecord class="app-record" *ngFor="let game of data" [game]="game">
+
+</app-gamerecord>
+
+<div>
+
+
+</div>
+
+<form #gameForm="ngForm" class="input-group mb-3">
+	<div class="input-group-prepend">
+		<span class="input-group-text">Yeni</span>
+	</div>
+
+	<select name="map" id="" class="form-control" [(ngModel)]="model.map">
+    <option *ngFor="let map of mapList" [value]="map.name">
+      {{map.name}}
+    </option>
+  </select>
+	<input [(ngModel)]="model.skillRating" type="text" class="form-control" placeholder="Skill Rating" name="skillRating">
+
+<div class="input-group-append">
+    <button (click)="add()" class="btn btn-primary" type="button">EKLE</button>
+  </div>
+</form>
+
+{{model.skillRating}} {{model.map}}
