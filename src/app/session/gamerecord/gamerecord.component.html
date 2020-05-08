@@ -1,13 +1,20 @@
 <div class="game-record">
 
-	<div class="date" *ngIf="game.date">
-		{{game.date}}
-	</div>
+	<img src="{{map.image}}" alt="" class="image">
+
 	<div class="map">
-		{{name}}
+		<div class="map-name">
+			{{map.name}}
+		</div>
+		<div class="date" *ngIf="game.date">
+			{{game.date}}
+		</div>
 	</div>
 	<div class="sr">
 		{{game.skillRating}}
+	</div>
+	<div class="ago">
+		{{ago}}
 	</div>
 	<mat-icon (click)="del.emit()" class="delete">delete</mat-icon>
 </div>

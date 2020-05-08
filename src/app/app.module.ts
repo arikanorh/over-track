@@ -15,8 +15,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MapService } from './map.service';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+
 import { AuthService } from './auth.service';
 import 'firebase/auth';
+import { DbService } from './db.service';
 
 @NgModule({
   imports: [
@@ -28,7 +31,8 @@ import 'firebase/auth';
     MatIconModule,
     RouterModule.forRoot([{ path: "", component: SessionComponent }]),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   declarations: [
     AppComponent,
@@ -37,6 +41,6 @@ import 'firebase/auth';
     GamerecordComponent
   ],
   bootstrap: [AppComponent],
-  providers: [MapService,AuthService]
+  providers: [MapService,AuthService,DbService]
 })
 export class AppModule {}

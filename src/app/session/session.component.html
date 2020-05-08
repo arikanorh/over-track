@@ -1,4 +1,4 @@
-<app-gamerecord class="app-record" *ngFor="let game of data" [game]="game" (del)="delete(game)">
+<app-gamerecord class="app-record" *ngFor="let game of data$ | async" [game]="game" (del)="delete(game)">
 
 </app-gamerecord>
 
@@ -14,10 +14,12 @@
       {{map.name}}
     </option>
   </select>
-	<input name="name"  #name="ngModel" [(ngModel)]="model.skillRating" type="text" class="form-control" placeholder="Skill Rating" required name="skillRating">
+	<input type="number"  name="name"  #name="ngModel" [(ngModel)]="model.skillRating" class="form-control" placeholder="Skill Rating" required name="skillRating">
 
 	<div class="input-group-append">
-		<button (click)="add()" class="btn btn-primary" type="button" [attr.disabled]="name.touched&&name.errors?.required">EKLE</button>
+		<button (click)="add()" class="btn btn-primary" type="button" [attr.disabled]="!name.pristine&&name.errors">EKLE</button>
 	</div>
+
+</form>	<div>
  
-</form>
+</div>

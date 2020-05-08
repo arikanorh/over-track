@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth, User } from 'firebase/app';
-import { BehaviorSubject } from 'rxjs';
+import { auth } from 'firebase/app';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from './model/User';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class AuthService {
   user$ =this._user$.asObservable();
 
   constructor(public auth: AngularFireAuth) {
-    this.auth.authState.subscribe(e=>{
-      this._user$.next(e);
+    this.auth.authState.subscribe((e:User)=>{
+        this._user$.next(e);
   
     })
   }
@@ -25,7 +26,10 @@ export class AuthService {
       this.auth.signOut();
     }
 
-    public getUser(){
-      return this._user$;
+    public getUser():Observable<User>{
+      return this.user$;
     }
+    // public getCurentUser(){
+    //   return this._user$.value;
+    // }
 }
