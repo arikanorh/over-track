@@ -13,8 +13,8 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MapService } from './map.service';
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from '@angular/fire/auth';
+ import { AngularFireModule } from 'angularfire2';
+ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   imports: [
