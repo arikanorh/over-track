@@ -14,7 +14,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MapService } from './map.service';
 import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth/public_api";
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth/public_api";
     MatToolbarModule,
     MatIconModule,
     RouterModule.forRoot([{ path: "", component: SessionComponent }]),
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule
   ],
   declarations: [
