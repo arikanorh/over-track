@@ -1,10 +1,10 @@
 import { Component, VERSION } from "@angular/core";
-import { auth } from "firebase/app";
- import { AngularFireAuthModule } from 'angularfire2/auth';
- 
+import { auth } from  'firebase/app';
+import { AngularFireAuth } from  "@angular/fire/auth";
+
 @Component({
   selector: "my-app",
-  templateUrl: "./app.component.html",
+  templateUrl: "./app.component.html", 
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
