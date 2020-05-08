@@ -15,17 +15,19 @@
   flex: 1;
 }
 
-.nav-item{
-  cursor:pointer;
-  margin-right: 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-item:hover{
-  background: var(--primary-color-light);
-}
+ 
 .example-spacer {
   flex: 1 1 auto;
+}
+ 
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+.login:hover{
+  background: white;
+  color: var(--primary-color-dark);
 }

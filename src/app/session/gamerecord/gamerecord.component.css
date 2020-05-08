@@ -13,9 +13,9 @@
    flex:1;
  }
  .delete{
-   color:#c2185b;
+   color:var(--primary-color);
    cursor: pointer;
  }
  .delete:hover{
-   color:#700d35;
+   color:var(--primary-color-dark);
  }

@@ -1,6 +1,10 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
- 
+
+:root{
+  --primary-color:   #c2185b;
+  --primary-color-dark:#700d35;
+} 
 body{
   margin: 0;
   position: absolute;
