@@ -13,7 +13,7 @@ export class AuthService {
   user$ =this._user$.asObservable();
 
   constructor(public auth: AngularFireAuth) {
-    this.auth.authState.subscribe((e:User)=>{
+    this.auth.authState.subscribe((e:any)=>{
         this._user$.next(e);
   
     })

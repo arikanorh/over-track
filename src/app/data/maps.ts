@@ -101,7 +101,7 @@ export const maps:Map[]= [
             "id": "17",
             "name": "Rialto",
             "type": "Escort",
-            "image":"/assets/maps/route-66.jpg"
+            "image":"/assets/maps/rialto.jpg"
         },
         {
             "id": "18",
