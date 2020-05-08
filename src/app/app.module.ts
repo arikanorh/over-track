@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MapService } from './map.service';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AuthService } from './auth.service';
 import 'firebase/auth';
 
 @NgModule({
@@ -36,6 +37,6 @@ import 'firebase/auth';
     GamerecordComponent
   ],
   bootstrap: [AppComponent],
-  providers: [MapService]
+  providers: [MapService,AuthService]
 })
 export class AppModule {}

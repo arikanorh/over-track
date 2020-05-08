@@ -1,20 +1,28 @@
-import { Component, VERSION } from "@angular/core";
-import { auth } from  'firebase/app';
-import { AngularFireAuth } from  "@angular/fire/auth";
+import { Component } from "@angular/core";
+import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { User } from 'firebase';
+ 
 
 @Component({
   selector: "my-app",
-  templateUrl: "./app.component.html", 
+  templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  constructor(public auth: AngularFireAuth) {
+  user;
+  constructor(public auth: AuthService) {
+
+    auth.getUser().subscribe(e=>{
+      this.user =e;
+    });
   
+
   }
   login() {
-    console.log(this.auth);
-    this.auth.signInWithPopup(new auth.GoogleAuthProvider());
+     this.auth.login();
   }
   logout() {
-    this.auth.signOut();
-  }}
+    this.auth.logout();
+  }
+}

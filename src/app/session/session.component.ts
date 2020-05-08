@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Game } from '../model/game';
 import { maps } from '../data/maps';
 import { Map } from '../model/map';
-import  moment from "moment";
+import  * as moment from "moment";
 
 @Component({
   selector: 'app-session',

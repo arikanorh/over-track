@@ -5,9 +5,14 @@
 		<mat-toolbar-row>
 			<span>Overwatch Tracker</span>
 			<span class="example-spacer"></span>
-			<div class="login" (click)="login()">
-				<mat-icon  >account_circle</mat-icon>
+			<div class="login" (click)="login()" *ngIf="!user">
+				<mat-icon>account_circle</mat-icon>
 				<span>LOGIN</span>
+			</div>
+			<div *ngIf="user">
+				<img class="photo" [src]="user.photoURL">
+				{{user.displayName}}
+
 			</div>
 
 		</mat-toolbar-row>

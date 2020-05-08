@@ -31,3 +31,8 @@
   background: white;
   color: var(--primary-color-dark);
 }
+.photo{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
