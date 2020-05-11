@@ -27,7 +27,7 @@ export const maps:Map[]= [
         },
         {
             "id": "5",
-            "name": "Numbani Numbani",
+            "name": "Numbani",
             "type": "Hybrid",
             "image":"/assets/maps/numbani.jpg"
         },
@@ -121,5 +121,10 @@ export const maps:Map[]= [
             "name": "Havana",
             "type": "Escort",
             "image":"/assets/maps/havana.jpg"
+        },
+        {   "id":"21",
+            "name":"Nepal",
+            "type":"Control",
+            "image":"/assets/maps/nepal.jpg"
         }
     ]

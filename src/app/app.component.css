@@ -13,11 +13,14 @@
 .content{
   background: #f4f8fb;
   flex: 1;
+  padding: 5px;
 }
 
  
 .example-spacer {
   flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
 }
  
 .login{
@@ -35,4 +38,16 @@
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+.nav-item{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+.nav-item:hover{
+  background: white;
+  color:var(--primary-color);
 }

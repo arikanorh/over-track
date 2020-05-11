@@ -1,0 +1,33 @@
+<div class="game-record" [class.win]="win" [class.lose]="lose" [class.tie]="tie">
+
+	<img src="{{map.image}}" alt="" class="image">
+
+	<div class="map">
+		<div class="map-name">
+			{{map.name}}
+		</div>
+		<div class="date">
+			{{game.timestamp?.toDate() | date:'yyyy-MM-dd HH:mm:ss'}}
+		</div>
+	</div>
+	<div class="sr">
+	
+		{{game.skillRating}} 
+		<mat-icon *ngIf="win">thumb_up</mat-icon>
+		<mat-icon *ngIf="lose">thumb_down</mat-icon>
+		<span *ngIf="!tie">
+			{{diffAbs}}
+		</span>
+	</div>
+	<div class="ago">
+		<mat-icon>schedule</mat-icon>
+
+		{{ago}} 
+	</div>
+	<select [(ngModel)]="game.status" (change)="update.emit()" *ngIf="!game.status">
+		<option value="WIN">WIN</option>
+		<option value="LOSE">LOSE</option>
+		<option value="TIE">TIE</option>
+	</select>
+	<mat-icon (click)="del.emit()" class="delete">delete</mat-icon>
+</div>

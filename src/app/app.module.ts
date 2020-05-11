@@ -6,8 +6,8 @@ import { AppComponent } from "./app.component";
 import { HelloComponent } from "./hello.component";
 import { environment } from "./environments/environment";
 import { RouterModule } from "@angular/router";
-import { SessionComponent } from "./session/session.component";
-import { GamerecordComponent } from "./session/gamerecord/gamerecord.component";
+import { SessionDetailComponents } from "./session/session-details/session-details.component";
+import { GamerecordComponent } from "./session/session-details/gamerecord/gamerecord.component";
 import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatIconModule } from "@angular/material/icon";
@@ -20,6 +20,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AuthService } from './auth.service';
 import 'firebase/auth';
 import { DbService } from './db.service';
+import { SessionlistComponent } from './session/sessionlist/sessionlist.component';
+import { SessionRecordComponent } from './session/sessionlist/session-record/session-record.component';
 
 @NgModule({
   imports: [
@@ -29,7 +31,11 @@ import { DbService } from './db.service';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    RouterModule.forRoot([{ path: "", component: SessionComponent }]),
+    RouterModule.forRoot([
+      { path: "", redirectTo:"sessions",pathMatch:"full" },
+      { path:"sessions",component:SessionlistComponent},
+      { path:"sessions/:id",component:SessionDetailComponents}
+    ],{useHash:false}),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule
@@ -37,8 +43,10 @@ import { DbService } from './db.service';
   declarations: [
     AppComponent,
     HelloComponent,
-    SessionComponent,
-    GamerecordComponent
+    SessionDetailComponents,
+    GamerecordComponent,
+    SessionlistComponent,
+    SessionRecordComponent
   ],
   bootstrap: [AppComponent],
   providers: [MapService,AuthService,DbService]

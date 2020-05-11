@@ -10,5 +10,8 @@ export class MapService {
   public static getMapById(id:string):Map{
       return maps.find(map=>map.id===id);
   }
+  public static getMaps():Map[]{
+    return maps.sort((e1,e2)=> e1.name>e2.name?1:-1);
+  }
 
 }

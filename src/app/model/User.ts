@@ -1,6 +1,7 @@
-export interface User {
+export class User {
     displayName:string;
     email:string;
-    uid:number;
+    uid:string;
     photoURL;
+    lastLogin;
 }

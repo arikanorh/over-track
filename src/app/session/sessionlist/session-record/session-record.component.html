@@ -1,0 +1,12 @@
+<div class="session-record">
+
+  <span class="session-name">Session #{{index}}</span>  :   {{session.started?.toDate() | date:'yyyy-MM-dd HH:mm:ss'}} {{session.name}}
+  <div class="spacer"></div>
+
+  <span class="ago">
+    {{ago}}
+  </span>
+  <span class="sesion-id">ID: {{session.id}}</span>
+  <mat-icon (click)="del.emit()" class="delete">fingerprint</mat-icon>
+
+</div>
