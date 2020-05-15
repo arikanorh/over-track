@@ -1,28 +1,7 @@
 <div class="main">
 
-	<mat-toolbar color="primary">
 
-		<mat-toolbar-row>
-			<div class="nav-item" routerLink="sessions">Sessions</div>
-			<div class="nav-item" >Last Session</div>
-
-			<span class="example-spacer">
-				<span>Overwatch Tracker</span>
-
-			</span>
-			<div class="login" (click)="login()" *ngIf="!user">
-				<mat-icon>account_circle</mat-icon>
-				<span>LOGIN</span>
-			</div>
-			<div *ngIf="user">
-				<img class="photo" [src]="user.photoURL">
-				{{user.displayName}}
-
-			</div>
-
-		</mat-toolbar-row>
-	</mat-toolbar>
-
+	<app-navigation></app-navigation>
 
 	<div class="content">
 		<router-outlet></router-outlet>

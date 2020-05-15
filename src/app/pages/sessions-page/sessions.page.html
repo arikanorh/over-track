@@ -1,0 +1,17 @@
+<div class="page-title">
+  Sessions
+</div>
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">Session Name</span>
+  </div>
+  <input (keydown.enter)="addBtn.click()" type="text" class="form-control" placeholder="Optional" #name>
+  <div #addBtn class="btn btn-primary" (click)="addSession(name.value)">Start New Session</div>
+
+</div>
+
+<app-session-record [routerLink]="[session.id]" *ngFor="let session of sessions$ | async;let i = index;trackBy:trackByFn"
+  [session]="session" [index]="i+1">
+</app-session-record>

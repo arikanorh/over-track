@@ -1,0 +1,80 @@
+.nav-main {
+    height: 50px;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.inner {
+    margin: 0 10px;
+}
+
+.content {
+    background: #f4f8fb;
+    flex: 1;
+    padding: 5px;
+}
+
+
+.example-spacer {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.login-panel {
+    margin-right: 10px;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.login:hover {
+    background: white;
+    color: var(--primary-color-dark);
+}
+
+.photo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.nav-item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    min-width: 50px;
+}
+
+.nav-item:hover {
+    background: rgb(255, 255, 255);
+    color: var(--primary-color);
+}
+
+.user-name {
+    text-transform: capitalize;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-right: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo:hover {
+    background: white;
+}

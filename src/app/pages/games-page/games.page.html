@@ -1,0 +1,58 @@
+
+<form #gameForm="ngForm" class="input-group mb-3">
+	<div class="input-group-prepend">
+		<span class="input-group-text">Map</span>
+	</div>
+
+
+	<select name="map" id="" class="form-control" [(ngModel)]="model.map">
+    <option *ngFor="let map of mapList" [value]="map.id">
+      {{map.name}}
+    </option>
+  </select>
+  <div class="input-group-prepend input-group-append">
+
+	  <span class="input-group-text">SR</span>
+	</div>
+
+	<input autofocus (keydown.enter)="addBtn.click()" type="number"  name="name"  #name="ngModel" [(ngModel)]="model.skillRating" class="form-control" placeholder="Skill Rating" required name="skillRating">
+
+	<select [(ngModel)]="model.status" name="status" *ngIf="false">
+		<option value="WIN" selected>WIN</option>
+		<option value="LOSE">LOSE</option>
+		<option value="TIE">TIE</option>
+	</select>
+	<div class="input-group-append">
+		<button #addBtn (click)="add()" class="btn btn-primary" type="button" [attr.disabled]="!name.pristine&&name.errors">ADD</button>
+	</div>
+
+</form>	
+
+<div *ngIf="session">
+	<app-gamerecord
+		class="app-record"
+		*ngFor="let game of data;trackBy:trackByFn ;let i =index" 
+		[game]="game"
+		[prev]="data[i+1] || this.session.last_game" 
+		(del)="delete(game)"
+		(update)="update(game)"
+		(editModeChanged)="handleEditModeChanged($event)"
+	>
+	</app-gamerecord>
+
+	<div *ngIf="session.last_game">
+
+ 	 <div class="last-session">
+		 LAST - SESSION - INFO
+	 </div>
+
+		 <app-gamerecord
+		 class="app-record"
+		 [game]="session.last_game"
+		 (update) ="updateLastGame(session.last_game)"
+ 		 ></app-gamerecord>  
+	</div>
+	<ng-template></ng-template>
+  
+
+<button *ngIf="data?.length==0" (click)="deleteSession()" class="btn btn-danger" type="button">DELETE SESSION!!!!</button>

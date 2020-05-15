@@ -1,0 +1,14 @@
+.app-record{
+  display: block;
+}
+.last-session{
+  height: 20px;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: #c2185b;
+  color: white;
+}
