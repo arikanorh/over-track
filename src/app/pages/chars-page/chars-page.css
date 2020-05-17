@@ -1,9 +1,11 @@
 .chars{
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -10px;
+    margin: 10px;
+
 }
 .chars app-char-displayer{
     margin-bottom:10px;
     flex:1;
-    margin: 0 -10px;
 }

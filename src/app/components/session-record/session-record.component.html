@@ -18,18 +18,20 @@
         <img *ngSwitchCase="'SUPPORT'" src="/assets/role_icons/support.png" alt="{{session.role}}" class="role-img ic">
         {{session.role}}
       </div>
-      <div class="name" *ngIf="session.name">
-        <mat-icon class="ic">comment</mat-icon>
-        {{session.name}}
+      <div class="name hide-on-small" >
+        <ng-container *ngIf="session.name">
+          <mat-icon class="ic">comment</mat-icon>
+          {{session.name}}
+        </ng-container>
       </div>
+      <span class="ago hide-on-small" [title]="session.started?.toDate() | date:'yyyy-MM-dd HH:mm:ss'">
+        {{ago}}
+      </span>
 
     </div>
 
-    <div class="spacer"></div>
-
-    <span class="ago" [title]="session.started?.toDate() | date:'yyyy-MM-dd HH:mm:ss'">
-      {{ago}}
-    </span>
+ 
+   
 
     <div class="stats">
       <div class="total">
@@ -79,7 +81,7 @@
     </div>
   </div>
 </div>
-  <div class="actions">
+  <div class="actions hide-on-small">
 
     <div class=" normal" (click)='editMode=true'>
       <mat-icon>create</mat-icon>

@@ -4,50 +4,53 @@
 
 <div *ngIf="chars$| async as chars">
 
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Char
+        </span>
+      </div>
+      <select class="form-control" #charsSelect [(ngModel)]="session.char.id"
+        (change)="updateCharName(charsSelect.options[charsSelect.options.selectedIndex].text)">
+        <option *ngFor="let char of chars" [value]="char.id">
+          {{char.name}}
+        </option>
+      </select>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          Role
+        </span>
+      </div>
+      <select [(ngModel)]="session.role" class="form-control">
+        <option value="TANK">TANK</option>
+        <option value="DPS">DPS</option>
+        <option value="SUPPORT">SUPPORT</option>
+      </select>
+    </div>
 
-<div class="input-group mb-3">
-  
-  <div class="input-group-prepend input-group-append">
-    <span class="input-group-text">
-      Char
-    </span>
+    <div class="col-12 col-lg-4 input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+      </div>
+      <input (keydown.enter)="addBtn.click()" type="text" class="form-control" placeholder="Optional"
+        [(ngModel)]="session.name">
+
+      <div class="input-group-append">
+        <div #addBtn class="btn btn-primary" (click)="addSession()">Start New Session</div>
+      </div>
+
+    </div>
   </div>
-  <select class="form-control" #charsSelect [(ngModel)]="session.char.id"  (change)="updateCharName(charsSelect.options[charsSelect.options.selectedIndex].text)">
-    <option *ngFor="let char of chars" [value]="char.id">
-      {{char.name}}
-    </option>
-  </select>
-
-  <div class="input-group-prepend input-group-append">
-    <span class="input-group-text">
-      Role
-    </span>
-  </div>
-	<select [(ngModel)]="session.role" class="form-control">
-    <option value="TANK">TANK</option>
-    <option value="DPS">DPS</option>
-    <option value="SUPPORT">SUPPORT</option>
-  </select>
-
-  <div class="input-group-prepend input-group-append">
-    <span class="input-group-text" id="basic-addon1">Name</span>
-  </div>
-  <input (keydown.enter)="addBtn.click()" type="text" class="form-control" placeholder="Optional" [(ngModel)]="session.name">
-
-  <div class="input-group-prepend">
-    <div #addBtn class="btn btn-primary" (click)="addSession()">Start New Session</div>
-  </div>
-
-</div>
 
 
 
-<!-- <app-session-record [routerLink]="[session.id]" -->
-<app-session-record 
-  [chars]="chars"
-  *ngFor="let session of sessions$ | async;let i = index;trackBy:trackByFn" 
-  [session]="session" 
-  [index]="i+1"
-  (update)="updateSession($event)">
-</app-session-record>
+
+
+  <!-- <app-session-record [routerLink]="[session.id]" -->
+  <app-session-record [chars]="chars" *ngFor="let session of sessions$ | async;let i = index;trackBy:trackByFn"
+    [session]="session" [index]="i+1" (update)="updateSession($event)">
+  </app-session-record>
 </div>
