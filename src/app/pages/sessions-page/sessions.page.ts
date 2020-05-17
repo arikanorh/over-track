@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SessionRecord } from 'src/app/model/SessionRecord';
  import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { SessionService } from 'src/app/services/session.service';
+ import { SessionService } from 'src/app/services/session.service';
+ import { CharService } from 'src/app/services/char.service';
+import { Char } from 'src/app/model/Char';
 
 @Component({
   selector: 'app-sessions',
@@ -12,23 +13,36 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class SessionsPage implements OnInit {
 
-  constructor(private db: SessionService, private router: ActivatedRoute, private auth: AuthService) { }
+  constructor(private db: SessionService, private route: ActivatedRoute, private charService:CharService) { }
 
   sessions$: Observable<SessionRecord[]>;
   uid;
+  session=new SessionRecord();
+  chars$:Observable<Char[]>;
 
   ngOnInit() {
-    this.uid = this.router.snapshot.params.userid;
+    this.uid = this.route.snapshot.params.userid;
     this.sessions$ = this.db.getSessionsByUserId$(this.uid);
+    this.chars$ = this.charService.getChars(this.uid);
+
+    this.session.role='TANK';
    }
 
-  addSession(sessionname: string) {
-    this.db.addSessionRecord(sessionname,this.uid);
+  addSession() {
+    console.log(this.session)
+    this.db.addSessionRecord(this.session,this.uid);
 
   }
 
   trackByFn(index, item: SessionRecord) {
     return item.id;
+  }
+  updateCharName(name:string){
+    this.session.char.name=name;
+    console.log(this.session.char);
+  }
+  updateSession(session){
+    this.db.updateSessionCharInfo(this.uid,session.id,session);
   }
 
 }

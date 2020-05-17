@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChildren, QueryList } from '@angular/core';
 import { GameRecord } from '../../model/GameRecord';
-import { Map } from '../../model/map';
+import { Map } from '../../model/Map';
 import { Subscription, Observable } from 'rxjs';
 import { MapService } from 'src/app/services/map.service';
 import { ActivatedRoute, Router } from '@angular/router';

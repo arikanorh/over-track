@@ -1,0 +1,13 @@
+<div class="page-title">
+  Chars
+</div>
+<div class="input-group">
+  <input type="text" class="form-control" #name>
+  <div class="input-group-append">
+
+  <button class="btn btn-primary" (click)="addChar(name.value)">Add Char</button>
+</div>   </div>
+<div class="chars" *ngIf="chars$| async as chars">
+  <app-char-displayer *ngFor="let char of chars" [char]="char" >
+  </app-char-displayer>
+</div>

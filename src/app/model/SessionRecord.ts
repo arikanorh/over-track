@@ -1,4 +1,5 @@
 import { GameRecord } from './GameRecord';
+import { Char } from './Char';
 
 export class SessionRecord {
     started;
@@ -8,5 +9,7 @@ export class SessionRecord {
     lose:number;
     total:number;
     tie:number;
-    last_game?:GameRecord
+    last_game?:GameRecord;
+    char= new Char();
+    role:'TANK'|'DPS'|'SUPPORT'
 }

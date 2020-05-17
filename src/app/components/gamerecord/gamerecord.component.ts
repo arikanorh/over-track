@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { GameRecord } from 'src/app/model/GameRecord';
-import { Map } from 'src/app/model/map';
+import { Map } from 'src/app/model/Map';
 import * as moment from "moment";
 import { MapService } from 'src/app/services/map.service';
 

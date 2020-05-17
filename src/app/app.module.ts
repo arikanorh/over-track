@@ -26,6 +26,10 @@ import { SessionsPage } from './pages/sessions-page/sessions.page';
  import { SessionRecordComponent } from './components/session-record/session-record.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { CharsPage } from './pages/chars-page/chars-page';
+import { SharedModule } from './shared/shared.module';
+import { CharDisplayerComponent } from './components/char-displayer/char-displayer.component';
+import { CharService } from './services/char.service';
 
 @NgModule({
    imports: [
@@ -38,7 +42,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
       RoutingModule,
       AngularFireModule.initializeApp(environment.firebase),
       AngularFireAuthModule,
-      AngularFirestoreModule
+      AngularFirestoreModule,
+      SharedModule
    ],
    declarations: [
       AppComponent,
@@ -50,7 +55,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
       UserDisplayerComponent,
       MySessionsPage,
       LogoComponent,
-      NavigationComponent
+      NavigationComponent,
+      CharsPage,
+      CharDisplayerComponent
    ],
    bootstrap: [
       AppComponent
@@ -58,7 +65,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
    providers: [
       MapService,
       AuthService,
-       UserService
+       UserService,
+       CharService
    ]
 })
 export class AppModule { }

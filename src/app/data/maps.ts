@@ -1,4 +1,4 @@
-import { Map } from "../model/map";
+import { Map } from "../model/Map";
 
 export const maps:Map[]= [
         {

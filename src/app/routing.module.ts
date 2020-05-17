@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
- import { UsersPage } from './pages/users-page/users-page';
+import { UsersPage } from './pages/users-page/users-page';
 import { MySessionsPage } from './pages/my-session.page';
 import { SessionsPage } from './pages/sessions-page/sessions.page';
 import { GamesPage } from './pages/games-page/games.page';
-  
+import { CharsPage } from './pages/chars-page/chars-page';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,14 +17,16 @@ import { GamesPage } from './pages/games-page/games.page';
         path: "users", children: [
           { path: "", component: UsersPage },
           {
-            path: ":userid/sessions", children: [
-              { path: "", component: SessionsPage },
-              { path: ":sessionid", component: GamesPage }
+            path: ":userid", children: [
+              { path: "sessions", component: SessionsPage },
+              { path: "sessions/:sessionid", component: GamesPage },
+              { path: "chars", component: CharsPage }
+
             ]
           },
         ]
       },
-      {path:"**",redirectTo:"mysessions",pathMatch:"full"}
+      { path: "**", redirectTo: "mysessions", pathMatch: "full" }
 
     ]),
   ],

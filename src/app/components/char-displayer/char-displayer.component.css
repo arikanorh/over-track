@@ -1,0 +1,6 @@
+.char-name{
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    height: 100%;
+}

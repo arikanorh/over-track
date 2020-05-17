@@ -1,0 +1,46 @@
+:host{
+    max-width: 420px;
+    min-width: 280px;
+    flex: 1;
+}
+.ui-card {
+   
+    max-width: 420px;
+    min-width: 280px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s; 
+     margin: 10px;
+}
+.ui-card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+.ui-card .content{
+    height: 100px;
+
+}
+ 
+.ui-card .footer{
+    display: flex;
+    background-color: var(--primary-color);
+    color:white;
+    flex: 1;
+}
+
+.ui-card .footer  mat-icon{
+    height: 100%;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+     cursor: pointer;
+     transition: background-color 300ms;
+}
+.ui-card .footer mat-icon+mat-icon{
+    border-left: 1px solid white;
+}
+.ui-card .footer mat-icon:hover{
+    background-color: var(--primary-color-dark);
+}

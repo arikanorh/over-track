@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { maps } from '../data/maps';
-import { Map } from '../model/map';
+import { Map } from '../model/Map';
 
 @Injectable()
 export class MapService {

@@ -1,4 +1,4 @@
-<div class="user">
+ <ui-card>
   <div class="content">
     <img class="profile-pic" src="{{user.photoURL}}" alt="{{user.displayName}}">
     <div class="user-name-panel">
@@ -8,8 +8,8 @@
   </div>
   <div class="footer">
     <mat-icon title="Show Sessions" [routerLink]="['./',user.uid,'sessions']">fingerprint</mat-icon>
-    <mat-icon class="not-active">add_box</mat-icon>
+    <mat-icon class="not-active" [routerLink]="['./',user.uid,'chars']">supervisor_account</mat-icon>
     <mat-icon class="not-active">edit</mat-icon>
     <mat-icon class="not-active">delete</mat-icon>
   </div>
- </div>
+ </ui-card>

@@ -1,10 +1,9 @@
-.users{
+.chars{
     display: flex;
     flex-wrap: wrap;
 }
-.users app-user-displayer{
+.chars app-char-displayer{
     margin-bottom:10px;
-    flex: 1;
+    flex:1;
     margin: 0 -10px;
-
 }
