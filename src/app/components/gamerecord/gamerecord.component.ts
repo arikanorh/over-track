@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, HostListener, ChangeDetectionStrategy } from '@angular/core';
  import   moment from "moment";
 import { MapService } from '../../services/map.service';
-import { Map } from '../../model/map';
+import { Map } from '../../model/Map';
 import { GameRecord } from '../../model/GameRecord';
  
 @Component({
