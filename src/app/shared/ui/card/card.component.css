@@ -1,12 +1,9 @@
 :host{
-    max-width: 420px;
-    min-width: 280px;
-    flex: 1;
-}
+     min-width: 280px;
+ }
 .ui-card {
    
-    max-width: 420px;
-    min-width: 280px;
+ 
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: box-shadow 0.3s; 

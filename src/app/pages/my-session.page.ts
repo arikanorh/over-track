@@ -12,7 +12,7 @@ export class MySessionsPage implements OnInit {
   constructor(private router:Router,private auth:AuthService) { }
 
   ngOnInit() {
-    this.auth.getUser().subscribe(e=>{
+    this.auth.getUser$().subscribe(e=>{
       this.router.navigate(['users',e.uid,'sessions']);
     })
   }

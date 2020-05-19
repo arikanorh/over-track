@@ -43,7 +43,9 @@
 	<div *ngIf="session.last_game">
 
  	 <div class="last-session">
-		 LAST - SESSION - INFO
+		<span class="material-icons">
+			equalizer
+			</span>	LAST GAME
 	 </div>
 
 		 <app-gamerecord
@@ -56,3 +58,5 @@
   
 
 <button *ngIf="data?.length==0" (click)="deleteSession()" class="btn btn-danger" type="button">DELETE SESSION!!!!</button>
+
+ 

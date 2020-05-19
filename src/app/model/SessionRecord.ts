@@ -9,7 +9,7 @@ export class SessionRecord {
     lose:number;
     total:number;
     tie:number;
-    last_game?:GameRecord;
+    last_game= new GameRecord();
     char= new Char();
     role:'TANK'|'DPS'|'SUPPORT'
 }

@@ -29,8 +29,7 @@ export class SessionsPage implements OnInit {
    }
 
   addSession() {
-    console.log(this.session)
-    this.db.addSessionRecord(this.session,this.uid);
+     this.db.addSessionRecord(this.session,this.uid);
 
   }
 
@@ -39,8 +38,7 @@ export class SessionsPage implements OnInit {
   }
   updateCharName(name:string){
     this.session.char.name=name;
-    console.log(this.session.char);
-  }
+   }
   updateSession(session){
     this.db.updateSessionCharInfo(this.uid,session.id,session);
   }

@@ -36,21 +36,33 @@ export const updateLastGameOfNewSession = functions.region('europe-west3').fires
     async (snapshot, context) => {
         const uid = context.params.userid;
   
-        const started = snapshot.data()?.started;
+        const data = snapshot.data();
+        if(data){
 
-        const previousSessionResponse = await app.firestore().collection('users/' + uid + "/sessions").where('started', '<', started).orderBy('started','desc').limit(1).get();
-        
-        const previousSessionId = previousSessionResponse.docs[0].id
-
-        const response = await app.firestore().collection('users/' + uid + "/games").where('sessionid', '==', previousSessionId).orderBy('timestamp','desc').limit(1).get();
-
-
-
-        const docs = response.docs;
-
-        const doc = docs[0];
-
-        return snapshot.ref.set({last_game:doc.data()},{merge:true})
-        
+            const started = data.started;
+            const charid=data.char.id;
+            const role = data.role;            
+            
+            const previousSessionResponse = await app.firestore().collection('users/' + uid + "/sessions").
+                where('started', '<', started).
+                where('char.id','==',charid).
+                where('role','==',role).
+                orderBy('started','desc').
+                limit(1).get();
+            
+            const previousSessionId = previousSessionResponse.docs[0].id
+            
+            const response = await app.firestore().collection('users/' + uid + "/games").where('sessionid', '==', previousSessionId).orderBy('timestamp','desc').limit(1).get();
+            
+            
+            
+            const docs = response.docs;
+            
+            const doc = docs[0];
+            
+            return snapshot.ref.set({last_game:doc.data()},{merge:true})
+        }
+        return;
+            
     }
 )

@@ -14,7 +14,7 @@ export class NavigationComponent {
 
   constructor(public auth: AuthService,private router:Router,private route:ActivatedRoute) {
 
-    auth.getUser().subscribe(e => {
+    auth.getUser$().subscribe(e => {
       this.user = e;
     });
   }

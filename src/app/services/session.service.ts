@@ -49,8 +49,11 @@ export class SessionService {
 
     const id = this.afs.createId();
     session.id = id;
+    session.char = {...session.char};
+    session.last_game= {...session.last_game}
+    session.last_game.map="22";
     session.started = firebase.firestore.FieldValue.serverTimestamp();
-    this.afs.collection<SessionRecord>('users/' + uid + "/sessions").doc(id).set(Object.assign({}, session));
+    this.afs.collection<SessionRecord>('users/' + uid + "/sessions").doc(id).set({...session});
   }
 
   public updateSessionsLastGameInfo(uid: string, sid: string, gamerecord: GameRecord) {

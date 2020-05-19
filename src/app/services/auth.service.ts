@@ -35,10 +35,10 @@ export class AuthService {
       this.auth.signOut();
     }
 
-    public getUser():Observable<User>{
+    public getUser$():Observable<User>{
       return this.user$;
     }
-    public getCurentUser(){
-      return this.currentUser;
+    public getCurentUser():User{
+       return this.currentUser;
     }
 }

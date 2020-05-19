@@ -126,5 +126,10 @@ export const maps:Map[]= [
             "name":"Nepal",
             "type":"Control",
             "image":"/assets/maps/nepal.jpg"
+        },
+        {   "id":"22",
+            "name":"Unkown",
+            "type":"Unkown",
+            "image":"/assets/maps/unknown.jpg"
         }
     ]
