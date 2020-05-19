@@ -2,13 +2,13 @@ import { Component, OnInit, OnDestroy, ViewChildren, QueryList } from '@angular/
 import { GameRecord } from '../../model/GameRecord';
 import { Map } from '../../model/Map';
 import { Subscription, Observable } from 'rxjs';
-import { MapService } from 'src/app/services/map.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { GameService } from 'src/app/services/game.service';
-import { SessionService } from 'src/app/services/session.service';
-import { GamerecordComponent } from 'src/app/components/gamerecord/gamerecord.component';
-import { SessionRecord } from 'src/app/model/SessionRecord';
-
+ import { ActivatedRoute, Router } from '@angular/router';
+import { GamerecordComponent } from '../../components/gamerecord/gamerecord.component';
+import { SessionRecord } from '../../model/SessionRecord';
+import { GameService } from '../../services/game.service';
+import { SessionService } from '../../services/session.service';
+import { MapService } from '../../services/map.service';
+ 
 @Component({
   selector: 'app-session-detail',
   templateUrl: './games.page.html',

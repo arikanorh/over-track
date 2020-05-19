@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { SessionRecord } from 'src/app/model/SessionRecord';
-import * as moment from "moment";
-import { Char } from 'src/app/model/Char';
-import { SessionService } from 'src/app/services/session.service';
+ import  moment from "moment";
+import { SessionRecord } from '../../model/SessionRecord';
+import { Char } from '../../model/Char';
 
 @Component({
   selector: 'app-session-record',
