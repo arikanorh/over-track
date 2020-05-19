@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionRecord } from 'src/app/model/SessionRecord';
- import { Observable } from 'rxjs';
+  import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { SessionService } from 'src/app/services/session.service';
-
+import { SessionService } from '../../services/session.service';
+import { AuthService } from '../../services/auth.service';
+import { SessionRecord } from '../../model/SessionRecord';
+ 
 @Component({
   selector: 'app-sessions',
   templateUrl: './sessions.page.html',

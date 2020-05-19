@@ -22,7 +22,7 @@ export class UserService {
   }
 
   public getUsers$() {
-    return this.users$;
+    return this.users$; 
   }
 
 }

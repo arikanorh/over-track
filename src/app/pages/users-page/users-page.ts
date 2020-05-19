@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
  import { Observable } from 'rxjs';
-import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/model/User';
- 
+import { UserService } from '../../services/user.service';
+import { User } from '../../model/User';
+  
 @Component({
   selector: 'app-page',
   templateUrl: './users-page.html',

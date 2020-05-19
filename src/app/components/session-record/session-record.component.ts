@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { SessionRecord } from 'src/app/model/SessionRecord';
-import * as moment from "moment";
+ import  moment from "moment";
+import { SessionRecord } from '../../model/SessionRecord';
 
 @Component({
   selector: 'app-session-record',

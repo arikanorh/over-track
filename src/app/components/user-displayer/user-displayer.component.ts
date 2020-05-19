@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/app/model/User';
-
+import { User } from '../../model/User';
+ 
 @Component({
   selector: 'app-user-displayer',
   templateUrl: './user-displayer.component.html',

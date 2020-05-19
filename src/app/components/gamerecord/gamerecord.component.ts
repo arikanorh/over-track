@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { GameRecord } from 'src/app/model/GameRecord';
-import { Map } from 'src/app/model/map';
-import * as moment from "moment";
-import { MapService } from 'src/app/services/map.service';
-
+ import   moment from "moment";
+import { MapService } from '../../services/map.service';
+import { Map } from '../../model/map';
+import { GameRecord } from '../../model/GameRecord';
+ 
 @Component({
   selector: 'app-gamerecord',
   templateUrl: './gamerecord.component.html',
