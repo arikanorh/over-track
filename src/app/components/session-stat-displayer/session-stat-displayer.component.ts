@@ -8,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SessionStatDisplayerComponent implements OnInit {
 
   @Input() session;
+  @Input() lastGameOfSession;
 
   constructor() { }
 
   ngOnInit() {
-  }
+    }
 
 }

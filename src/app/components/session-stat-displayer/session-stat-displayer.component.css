@@ -5,6 +5,7 @@
 }
 .stats,
 .win,
+.diff,
 .lose,
 .total {
     display: flex;
