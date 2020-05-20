@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Char } from 'src/app/model/Char';
-import { CharService } from 'src/app/services/char.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { CharService } from '../../services/char.service';
+import { Char } from '../../model/Char';
 
 @Component({
   selector: 'app-chars-page',

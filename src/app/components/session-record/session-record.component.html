@@ -13,9 +13,10 @@
         {{session.char?.name}}
       </div>
       <div class="role" *ngIf="session.role" [ngSwitch]="session.role">
-        <img *ngSwitchCase="'TANK'" src="/assets/role_icons/tank.png" alt="{{session.role}}" class="role-img ic">
-        <img *ngSwitchCase="'DPS'" src="/assets/role_icons/damage.png" alt="{{session.role}}" class="role-img ic">
-        <img *ngSwitchCase="'SUPPORT'" src="/assets/role_icons/support.png" alt="{{session.role}}" class="role-img ic">
+        <img *ngSwitchCase="'TANK'" src="/assets/role_icons/tank.png" alt="" class="role-img ic">
+        <img *ngSwitchCase="'DPS'" src="/assets/role_icons/damage.png"
+        alt="" class="role-img ic">
+        <img *ngSwitchCase="'SUPPORT'" src="/assets/role_icons/support.png"  alt="" class="role-img ic">
         {{session.role}}
       </div>
       <div class="name hide-on-small" >

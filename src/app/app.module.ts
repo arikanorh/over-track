@@ -30,6 +30,7 @@ import { CharsPage } from './pages/chars-page/chars-page';
 import { SharedModule } from './shared/shared.module';
 import { CharDisplayerComponent } from './components/char-displayer/char-displayer.component';
 import { CharService } from './services/char.service';
+import { SessionStatDisplayerComponent } from './components/session-stat-displayer/session-stat-displayer.component';
 
 @NgModule({
    imports: [
@@ -57,7 +58,8 @@ import { CharService } from './services/char.service';
       LogoComponent,
       NavigationComponent,
       CharsPage,
-      CharDisplayerComponent
+      CharDisplayerComponent,
+      SessionStatDisplayerComponent
    ],
    bootstrap: [
       AppComponent

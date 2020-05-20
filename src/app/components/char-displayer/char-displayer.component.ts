@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Char } from 'src/app/model/Char';
+import { Char } from '../../model/Char';
 
 @Component({
   selector: 'app-char-displayer',
