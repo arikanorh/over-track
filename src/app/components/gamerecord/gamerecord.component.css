@@ -90,8 +90,10 @@ mat-icon {
 }
 
 .image {
-  height: 100%;
-  padding-right: 10px;
+  height: 60px;
+  margin-right: 10px;
+  width: 106px;
+  background: radial-gradient(#5b0b2b, transparent);
 }
 
 .map-name {
