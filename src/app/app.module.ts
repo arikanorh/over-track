@@ -31,6 +31,8 @@ import { SharedModule } from './shared/shared.module';
 import { CharDisplayerComponent } from './components/char-displayer/char-displayer.component';
 import { CharService } from './services/char.service';
 import { SessionStatDisplayerComponent } from './components/session-stat-displayer/session-stat-displayer.component';
+import { AuthGuard } from "./auth.guard";
+import { LoginPage } from "./pages/login-page/login.page";
 
 @NgModule({
    imports: [
@@ -59,7 +61,8 @@ import { SessionStatDisplayerComponent } from './components/session-stat-display
       NavigationComponent,
       CharsPage,
       CharDisplayerComponent,
-      SessionStatDisplayerComponent
+      SessionStatDisplayerComponent,
+      LoginPage
    ],
    bootstrap: [
       AppComponent
@@ -68,7 +71,8 @@ import { SessionStatDisplayerComponent } from './components/session-stat-display
       MapService,
       AuthService,
        UserService,
-       CharService
+       CharService,
+       AuthGuard
    ]
 })
 export class AppModule { }

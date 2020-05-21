@@ -4,6 +4,7 @@ import { auth, firestore } from 'firebase/app';
 import {  Observable, ReplaySubject } from 'rxjs';
 import { User } from '../model/User';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,15 @@ export class AuthService {
   user$ =this._user$.asObservable();
   currentUser:User;
 
-  constructor(public auth: AngularFireAuth,afs:AngularFirestore) {
+  constructor(public auth: AngularFireAuth,afs:AngularFirestore,private router:Router) {
+    
+    
     this.auth.authState.subscribe((e:firebase.User)=>{
-       let user= new User();
+      if(!e){
+      this._user$.next(null)
+       return;
+      }
+      let user= new User();
        user.uid = e.uid;
        user.displayName = e.displayName;
        user.photoURL = e.photoURL;
@@ -32,7 +39,10 @@ export class AuthService {
       this.auth.signInWithPopup(new auth.GoogleAuthProvider());
     }
     logout() {
-      this.auth.signOut();
+      this.auth.signOut().then(e=>{
+        this._user$.next(null);
+        this.router.navigate(['login']);
+      });
     }
 
     public getUser$():Observable<User>{
