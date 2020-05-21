@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MapService } from './services/map.service';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFirestoreModule, AngularFirestore } from "@angular/fire/firestore";
 
 import { AuthService } from './services/auth.service';
 import 'firebase/auth';
@@ -75,4 +75,16 @@ import { LoginPage } from "./pages/login-page/login.page";
        AuthGuard
    ]
 })
-export class AppModule { }
+export class AppModule { 
+   
+   constructor(afs:AngularFirestore){
+      
+      if (location.hostname === "localhost") {
+         afs.firestore.settings({
+           host: "localhost:8080",
+           ssl: false
+         });
+       }
+
+   }
+}
