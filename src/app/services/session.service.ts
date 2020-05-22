@@ -6,6 +6,7 @@ import { SessionRecord } from '../model/SessionRecord';
 import { GameRecord } from '../model/GameRecord';
 import { tap } from 'rxjs/operators';
 import { Char } from '../model/Char';
+import { LoaderService } from './loader.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +14,11 @@ import { Char } from '../model/Char';
 export class SessionService {
 
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore,private ls:LoaderService) { }
 
 
   public getSessionsByUserId$(uid: string): Observable<SessionRecord[]> {
+    this.ls.show();
     return this.afs.collection<SessionRecord>('users/' + uid + "/sessions", ref => (ref.orderBy('started', 'desc'))).valueChanges().pipe(
       tap(e => {
         e.forEach(element => {
@@ -27,6 +29,7 @@ export class SessionService {
             element.name = '';
           }
         })
+        this.ls.hide();
       }));
 
 

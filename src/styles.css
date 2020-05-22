@@ -1,15 +1,14 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-:root{
-  --primary-color:   #c2185b;
-  --primary-color-dark:#700d35;
-} 
+
 body{
   margin: 0;
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+
 }    
 
 .page-title{
@@ -17,8 +16,19 @@ body{
   font-size: 24px;
 }
 
+
+.mat-snack-bar-container{
+  background: var(--primary-color-dark);
+  color: white;
+}
+.mat-simple-snackbar-action{
+  background: var(--primary-color);
+    border-radius: 4px;
+}
+
 @media only screen and (max-width: 600px) {
   .hide-on-small {
     display: none !important;
    }
 }
+

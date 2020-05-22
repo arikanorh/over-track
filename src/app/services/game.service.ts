@@ -3,16 +3,21 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { GameRecord } from '../model/GameRecord';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
+import { LoaderService } from './loader.service';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore,private ls:LoaderService) { }
 
   public getGameRecordsBySessionId$(uid: string, id: string): Observable<GameRecord[]> {
-    return this.afs.collection<GameRecord>('users/' + uid + "/games", ref => (ref.where('sessionid', "==", id).orderBy('timestamp', 'desc'))).valueChanges({ serverTimestamps: 'estimate' });
+    this.ls.show();
+    return this.afs.collection<GameRecord>('users/' + uid + "/games", ref => (ref.where('sessionid', "==", id).orderBy('timestamp', 'desc'))).valueChanges({ serverTimestamps: 'estimate' }).pipe(
+      tap(e=>this.ls.hide())
+    );
   }
 
   public addGameRecord(item: GameRecord, sessionid: string, uid: string) {

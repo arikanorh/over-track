@@ -6,7 +6,8 @@
 
 <div *ngIf="chars$| async as chars">
 
-  <div class="row">
+  <div class="container-fluid px-0">
+    <div class="row">
     <div class="col-12 col-sm-6 col-lg-4 input-group">
       <div class="input-group-prepend">
         <span class="input-group-text">
@@ -46,10 +47,7 @@
 
     </div>
   </div>
-
-
-
-
+</div>
 
   <!-- <app-session-record [routerLink]="[session.id]" -->
   <app-session-record [chars]="chars" *ngFor="let session of sessions$ | async;let i = index;trackBy:trackByFn"
