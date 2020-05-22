@@ -1,5 +1,6 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~material-design-icons/iconfont/material-icons.css';
 
 
 body{
