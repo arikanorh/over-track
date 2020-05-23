@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Char } from '../../model/Char';
 
 @Component({
@@ -9,9 +9,10 @@ import { Char } from '../../model/Char';
 export class CharDisplayerComponent implements OnInit {
 
   @Input() char:Char;
+  @Output() delete= new EventEmitter();
   constructor() { }
 
   ngOnInit() {
-  }
+   }
 
 }

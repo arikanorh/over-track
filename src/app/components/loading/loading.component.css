@@ -13,15 +13,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    opacity: 1;
+    visibility: visible;
 }
-
-.PreloaderWrap.Standalone {
-    background-color: white;
-}
-
-.PreloaderWrap.Standalone .PreloaderText {
-    color: #555;
-}
+.PreloaderWrap.hidden{
+    visibility: hidden;
+    opacity:0;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+ }
 
 .Preloader {
     width: 100%;

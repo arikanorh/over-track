@@ -16,7 +16,7 @@ constructor(private afs:AngularFirestore) {
    return this.afs.collection<Char>('chars',ref=>ref.where('uid','==',uid)).valueChanges();
  }
 
- public addChar(uid:string,name:string){
+ public addChar(uid:string,name:string):Promise<any>{
   const id = this.afs.createId();
   let char = new Char();
   char.id=id;
@@ -24,7 +24,14 @@ constructor(private afs:AngularFirestore) {
   char.name=name;
 
    this.afs.collection('chars').doc(id).set({...char});
-   this.afs.collection('users').doc(uid).collection('chars').doc(id).set({...char});
+   return this.afs.collection('users').doc(uid).collection('chars').doc(id).set({...char});
+ }
+
+ public deleteChar(uid:string,id):Promise<any>{
+  this.afs.collection('users').doc(uid).collection('chars').doc(id).delete();
+  return this.afs.collection('chars').doc(id).delete();
+
+
  }
 
 }

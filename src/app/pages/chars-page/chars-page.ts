@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CharService } from '../../services/char.service';
 import { Char } from '../../model/Char';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-chars-page',
@@ -13,7 +14,7 @@ export class CharsPage implements OnInit {
 
   chars$:Observable<Char[]>;
   uid;
-  constructor(private charService:CharService,private route:ActivatedRoute) { }
+  constructor(private charService:CharService,private route:ActivatedRoute,private snack:MatSnackBar) { }
 
   ngOnInit() {
     this.uid = this.route.snapshot.params.userid;
@@ -23,8 +24,18 @@ export class CharsPage implements OnInit {
 
   addChar(name:string){
 
-      this.charService.addChar(this.uid,name);
-
+      this.charService.addChar(this.uid,name).then(e=>{
+        this.snack.open("["+name+"] has been created",null,{
+          duration:3000
+        });
+      });
+  }
+  deleteChar(char:Char){
+    this.charService.deleteChar(this.uid,char.id).then(e=>{
+      this.snack.open("["+char.name+"] has been deleted!!!",null,{
+        duration:3000
+      });
+    })
   }
 
 }

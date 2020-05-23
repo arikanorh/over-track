@@ -5,6 +5,7 @@ import {  Observable, ReplaySubject } from 'rxjs';
 import { User } from '../model/User';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   user$ =this._user$.asObservable();
   currentUser:User;
 
-  constructor(public auth: AngularFireAuth,afs:AngularFirestore,private router:Router) {
+  constructor(public auth: AngularFireAuth,afs:AngularFirestore,private router:Router,private snack:MatSnackBar) {
     
     
     this.auth.authState.subscribe((e:firebase.User)=>{
@@ -32,7 +33,9 @@ export class AuthService {
        this.currentUser =user;
        this._user$.next(user);
        afs.collection('users').doc(user.uid).set({...user});
-  
+      
+       this.snack.open('Welcome ['+user.displayName.toLocaleUpperCase()+"]",null,{duration:3000})
+
     })
   }
     login() {
