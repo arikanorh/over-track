@@ -1,0 +1,94 @@
+<div class="session-record" [class.editMode]="editMode">
+
+  <div class="content-panel">
+  <div class="normal-panel" [routerLink]="session.id">
+
+
+    <div class="session-name">
+      <div class="index">
+        #{{index}}
+      </div>
+      <div class="char" *ngIf="session.char">
+        <mat-icon class="ic">person</mat-icon>
+        {{session.char?.name}}
+      </div>
+      <div class="role" *ngIf="session.role" [ngSwitch]="session.role">
+        <img *ngSwitchCase="'TANK'" src="/assets/role_icons/tank.png" alt="" class="role-img ic">
+        <img *ngSwitchCase="'DPS'" src="/assets/role_icons/damage.png"
+        alt="" class="role-img ic">
+        <img *ngSwitchCase="'SUPPORT'" src="/assets/role_icons/support.png"  alt="" class="role-img ic">
+        {{session.role}}
+      </div>
+      <div class="name hide-on-small" >
+        <ng-container *ngIf="session.name">
+          <mat-icon class="ic">comment</mat-icon>
+          {{session.name}}
+        </ng-container>
+      </div>
+      <span class="ago hide-on-small" [title]="session.started?.toDate() | date:'yyyy-MM-dd HH:mm:ss'">
+        {{ago}}
+      </span>
+
+    </div>
+
+ 
+   
+
+    <div class="stats">
+      <div class="total">
+        {{session.total}}
+      </div>
+      <div class="win">
+        <mat-icon>thumb_up</mat-icon>
+        {{session.win}}
+      </div>
+      <div class="lose">
+        <mat-icon>thumb_down</mat-icon>
+        {{session.lose}}
+      </div>
+    </div>
+
+  </div>
+  <div class="edit-panel">
+    <div class="content input-group">
+      <div class="input-group-prepend input-group-append">
+        <span class="input-group-text">
+          Char
+        </span>
+      </div>
+      <select class="form-control" #charsSelect [(ngModel)]="session.char.id" *ngIf="chars"
+        (change)="updateCharName(charsSelect.options[charsSelect.options.selectedIndex].text)">
+        <option *ngFor="let char of chars" [value]="char.id">
+          {{char.name}}
+        </option>
+      </select>
+
+      <div class="input-group-prepend input-group-append">
+        <span class="input-group-text">
+          Role
+        </span>
+      </div>
+      <select [(ngModel)]="session.role" class="form-control">
+        <option value="TANK">TANK</option>
+        <option value="DPS">DPS</option>
+        <option value="SUPPORT">SUPPORT</option>
+      </select>
+
+      <div class="input-group-prepend input-group-append">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Optional" [(ngModel)]="session.name">
+
+    </div>
+  </div>
+</div>
+  <div class="actions hide-on-small">
+
+    <div class=" normal" (click)='editMode=true'>
+      <mat-icon>create</mat-icon>
+    </div>
+    <div class="edit" (click)='updateSessions()'>
+      <mat-icon>check</mat-icon>
+    </div>
+  </div>
+</div>

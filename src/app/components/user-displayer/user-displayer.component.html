@@ -1,0 +1,15 @@
+ <ui-card>
+  <div class="content">
+    <img class="profile-pic" src="{{user.photoURL}}" alt="{{user.displayName}}">
+    <div class="user-name-panel">
+      <div class="user-name">{{user.displayName}}</div>
+      <div class="last-login">Last login :{{user.lastLogin?.toDate()| date:'yyyy-MM-dd HH:mm'}}</div>
+    </div>
+  </div>
+  <div class="footer">
+    <mat-icon title="Show Sessions" [routerLink]="['./',user.uid,'sessions']">fingerprint</mat-icon>
+    <mat-icon class="not-active" [routerLink]="['./',user.uid,'chars']">supervisor_account</mat-icon>
+    <mat-icon class="not-active">edit</mat-icon>
+    <mat-icon class="not-active">delete</mat-icon>
+  </div>
+ </ui-card>

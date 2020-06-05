@@ -1,0 +1,33 @@
+
+.stats{
+  background: white;
+  width: 100%
+}
+.stats,
+.win,
+.diff,
+.lose,
+.total {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.stats{
+   
+    margin-left: 0;
+    justify-content: center;
+}
+
+.stats mat-icon {
+    margin-right: 5px;
+}
+
+.win {
+    color: green;
+}
+
+.lose {
+    color: red;
+}

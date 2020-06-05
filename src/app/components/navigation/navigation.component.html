@@ -1,0 +1,37 @@
+<div class="nav-main">
+
+
+
+  <app-logo class="logo" (click)="goBack()"></app-logo>
+
+
+  <div class="nav-item " routerLink="mysessions">
+    <mat-icon>fingerprint</mat-icon>
+    <span class="hide-on-small">
+      My Sessions
+    </span>
+  </div>
+  <div class="nav-item" routerLink="users">
+    <mat-icon>supervisor_account</mat-icon>
+    <span class="hide-on-small">
+      Users
+    </span>
+  </div>
+  <span class="example-spacer">
+  </span>
+  <div class="login-panel">
+
+    <div class="login" (click)="login()" *ngIf="!user">
+      <mat-icon>account_circle</mat-icon>
+      <span>LOGIN</span>
+    </div>
+    <div *ngIf="user" (click)="logout()">
+      <span class="user-name hide-on-small">
+        {{user.displayName}}
+      </span>
+      <img class="photo" [src]="user.photoURL">
+    </div>
+
+  </div>
+
+</div>

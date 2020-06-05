@@ -1,20 +1,13 @@
 <div class="main">
 
-	<mat-toolbar color="primary">
 
-		<mat-toolbar-row>
-			<span>Overwatch Tracker</span>
-			<span class="example-spacer"></span>
-			<div class="login" (click)="login()">
-				<mat-icon  >account_circle</mat-icon>
-				<span>LOGIN</span>
-			</div>
-
-		</mat-toolbar-row>
-	</mat-toolbar>
-
+	<app-navigation class="navigation"></app-navigation>
 
 	<div class="content">
 		<router-outlet></router-outlet>
 	</div>
 </div>
+
+
+
+<app-loading></app-loading>

@@ -4,30 +4,16 @@
   flex-direction: column;
   height: 100%;
 }
-.nav{
-  height: 50px;
-  background:var(--primary-color);
-  display: flex;
- align-items: center;
+ 
+.navigation{
+  position: fixed;
+  top:0;
+  width: 100%;
 }
 .content{
   background: #f4f8fb;
   flex: 1;
-}
-
+  padding: 0 5px;
+  margin-top: 50px;
+ }
  
-.example-spacer {
-  flex: 1 1 auto;
-}
- 
-.login{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  cursor: pointer;
-}
-.login:hover{
-  background: white;
-  color: var(--primary-color-dark);
-}
